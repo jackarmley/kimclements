@@ -1,0 +1,137 @@
+/**
+ * Kim Clements
+ * Styles
+ */
+
+ /**
+ * Fonts
+ */
+ @import url('https://fonts.googleapis.com/css?family=Lato');
+
+/**
+ * Vars and sanitize
+ */
+:root {
+  --color-base: black;
+  --color-link: red;
+  --color-cardbg: rgba(255, 255, 255, 1);
+  --font-base: 'Lato', sans-serif;
+  --fontsize-subheading: 2rem;
+  --site-maxwidth: 120rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/**
+ * Base styles
+ */
+:root {
+  color: var(--color-base);
+  font: normal 62.5%/1.6 var(--font-base);
+}
+
+body {
+  font-size: 160%;
+}
+
+img {
+  width: auto;
+  max-width: 100%;
+}
+
+/**
+ * Layout styles
+ */
+.site-container {
+  width: auto;
+  max-width: var(--site-maxwidth);
+  margin: auto;
+  padding: 0 2rem;
+}
+
+.site-header {
+}
+
+  .site-logo {
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .site-nav {
+  }
+
+    .site-nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    .site-nav a {
+      display: inline-block;
+      padding: 1rem;
+    }
+
+/**
+ * Components
+ */
+ .card {
+   position: relative;
+   overflow: hidden;
+ }
+   .card-image {
+     width: 100%;
+     transition: .25s ease;
+   }
+
+   .card-details {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     display: flex;
+     width: 100%;
+     height: 100%;
+     transform: translateY(100%);
+     transition: .25s ease;
+   }
+
+    .card-details-inner {
+      min-height: 20rem;
+      margin: auto;
+      padding: 2rem;
+      background-color: var(--color-cardbg);
+      box-shadow: .5rem .5rem 0 0 rgba(0, 0, 0, .2);
+      border-radius: .2rem;
+      transition: .25s ease;
+    }
+
+    .card-details-heading {
+      font-size: var(--fontsize-subheading);
+    }
+
+    .card:hover .card-image{
+      filter: blur(1rem);
+    }
+    .card:hover .card-details {
+      transform: translateY(0);
+    }
+
+.workgrid {
+  display: flex;
+  list-style: none;
+  flex-flow: row wrap;
+  overflow: hidden;
+  margin: -1rem;
+}
+
+  .workgrid-item {
+    flex: 1 1 40rem;
+    margin: 1rem;
+  }
+  .workgrid-item:nth-child(1) {
+    flex-basis: 100%;
+  }

@@ -1,0 +1,16 @@
+{
+  "name": "kim-clements",
+  "version": "0.0.0",
+  "description": "Kim's site",
+  "author": "Jack Armley <jackarmley@google.com>",
+  "licence": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-postcss": "^6.4.0",
+    "gulp-watch": "^4.3.11",
+    "postcss": "^5.2.16",
+    "postcss-css-variables": "^0.7.0"
+  }
+}
