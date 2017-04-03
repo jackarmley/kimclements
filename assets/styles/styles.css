@@ -6,16 +6,18 @@
  /**
  * Fonts
  */
- @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato');
 
 /**
  * Vars and sanitize
  */
 :root {
   --color-base: black;
-  --color-link: red;
-  --color-cardbg: rgba(255, 255, 255, 1);
+  --color-link: teal;
+  --color-cardbg: rgba(255, 255, 255, .7);
+  --color-cardoutline: rgba(100,100,100,1);
   --font-base: 'Lato', sans-serif;
+  --fontsize-primaryheading: 3rem;
   --fontsize-subheading: 2rem;
   --site-maxwidth: 120rem;
 }
@@ -42,6 +44,10 @@ body {
 img {
   width: auto;
   max-width: 100%;
+}
+
+a {
+  color: var(--color-link);
 }
 
 /**
@@ -79,6 +85,11 @@ img {
 /**
  * Components
  */
+
+/**
+ * Card
+ * For displaying a preview of work
+ */
  .card {
    position: relative;
    overflow: hidden;
@@ -88,36 +99,52 @@ img {
      transition: .25s ease;
    }
 
-   .card-details {
-     position: absolute;
-     bottom: 0;
-     left: 0;
-     display: flex;
-     width: 100%;
-     height: 100%;
-     transform: translateY(100%);
-     transition: .25s ease;
-   }
-
     .card-details-inner {
-      min-height: 20rem;
-      margin: auto;
       padding: 2rem;
-      background-color: var(--color-cardbg);
-      box-shadow: .5rem .5rem 0 0 rgba(0, 0, 0, .2);
-      border-radius: .2rem;
-      transition: .25s ease;
     }
 
     .card-details-heading {
       font-size: var(--fontsize-subheading);
     }
 
-    .card:hover .card-image{
-      filter: blur(1rem);
+    /**
+     * Card: Featured theme
+     */
+    @media (min-width: 31.25em) {
+      .card.theme-featured .card-details-heading {
+        font-size: var(--fontsize-primaryheading);
+      }
     }
-    .card:hover .card-details {
-      transform: translateY(0);
+
+    /**
+     * Card: Discoverable theme
+     * Show details on :hover for non-touch devices
+     */
+    @media (pointer: fine) {
+      .card.theme-discoverable .card-details,
+      .card.theme-discoverable .card-details-inner {
+        transition: .25s ease;
+      }
+      .card.theme-discoverable .card-details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        transform: translateY(100%);
+      }
+      .card.theme-discoverable .card-details-inner {
+        background-color: var(--color-cardbg);
+      }
+      .card.theme-discoverable:hover {
+        border: .1rem solid var(--color-cardoutline);
+      }
+      .card.theme-discoverable:hover .card-image{
+        filter: blur(.5rem);
+        transform: scale(1.2);
+      }
+      .card.theme-discoverable:hover .card-details {
+         transform: translateY(0);
+      }
     }
 
 .workgrid {
